@@ -1,17 +1,17 @@
 # let's put all the students in an array
-    students = [
-    {name: "Dr. Hannibal Lecter", cohort: :november, hobbies: "football", country_of_birth: "Holland", height: "5ft 10in" },
-    {name: "Darth Vader", cohort: :november, hobbies: "football", country_of_birth: "Death Star", height: "5ft 11in" },
-    {name: "Nurse Ratched", cohort: :november, hobbies: "football", country_of_birth: "England", height: "5ft 9in" },
-    {name: "Michael Corleone", cohort: :november, hobbies: "football", country_of_birth: "Italy", height: "5ft 8in" },
-    {name: "Alex DeLarge", cohort: :november, hobbies: "football", country_of_birth: "England", height: "5ft 7in" },
-    {name: "The Wicked Witch of the West", cohort: :november, hobbies: "rugby", country_of_birth: "England", height: "5ft 8in" },
-    {name: "Terminator", cohort: :november, hobbies: "rugby", country_of_birth: "USA", height: "5ft 9in" },
-    {name: "Freddy Krueger", cohort: :november, hobbies: "rugby", country_of_birth: "USA", height: "6ft 1in" },
-    {name: "The Joker", cohort: :november, hobbies: "CrossFit", country_of_birth: "USA", height: "5ft 9in" },
-    {name: "Joffrey Baratheon", cohort: :november, hobbies: "CrossFit", country_of_birth: "England", height: "5ft 6in" },
-    {name: "Norman Bates", cohort: :november, hobbies: "CrossFit", country_of_birth: "USA", height: "6ft 0in" }
-    ]
+students = [
+{name: "Dr. Hannibal Lecter", cohort: :november, hobbies: "football", country_of_birth: "Holland", height: "5ft 10in" },
+{name: "Darth Vader", cohort: :november, hobbies: "football", country_of_birth: "Death Star", height: "5ft 11in" },
+{name: "Nurse Ratched", cohort: :november, hobbies: "football", country_of_birth: "England", height: "5ft 9in" },
+{name: "Michael Corleone", cohort: :november, hobbies: "football", country_of_birth: "Italy", height: "5ft 8in" },
+{name: "Alex DeLarge", cohort: :november, hobbies: "football", country_of_birth: "England", height: "5ft 7in" },
+{name: "The Wicked Witch of the West", cohort: :november, hobbies: "rugby", country_of_birth: "England", height: "5ft 8in" },
+{name: "Terminator", cohort: :november, hobbies: "rugby", country_of_birth: "USA", height: "5ft 9in" },
+{name: "Freddy Krueger", cohort: :november, hobbies: "rugby", country_of_birth: "USA", height: "6ft 1in" },
+{name: "The Joker", cohort: :november, hobbies: "CrossFit", country_of_birth: "USA", height: "5ft 9in" },
+{name: "Joffrey Baratheon", cohort: :november, hobbies: "CrossFit", country_of_birth: "England", height: "5ft 6in" },
+{name: "Norman Bates", cohort: :november, hobbies: "CrossFit", country_of_birth: "USA", height: "6ft 0in" }
+]
 
 def input_students(students)
   puts "Do you want to add a student? Enter 'yes' or 'no'."

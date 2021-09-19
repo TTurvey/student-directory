@@ -1,17 +1,4 @@
-# let's put all the students in an array
-@students = [
-  {name: "Dr. Hannibal Lecter", cohort: :november, hobbies: "football", country_of_birth: "Holland", height: "5ft 10in" },
-  {name: "Darth Vader", cohort: :november, hobbies: "football", country_of_birth: "Death Star", height: "5ft 11in" },
-  {name: "Nurse Ratched", cohort: :november, hobbies: "football", country_of_birth: "England", height: "5ft 9in" },
-  {name: "Michael Corleone", cohort: :november, hobbies: "football", country_of_birth: "Italy", height: "5ft 8in" },
-  {name: "Alex DeLarge", cohort: :november, hobbies: "football", country_of_birth: "England", height: "5ft 7in" },
-  {name: "The Wicked Witch of the West", cohort: :november, hobbies: "rugby", country_of_birth: "England", height: "5ft 8in" },
-  {name: "Terminator", cohort: :november, hobbies: "rugby", country_of_birth: "USA", height: "5ft 9in" },
-  {name: "Freddy Krueger", cohort: :november, hobbies: "rugby", country_of_birth: "USA", height: "6ft 1in" },
-  {name: "The Joker", cohort: :november, hobbies: "CrossFit", country_of_birth: "USA", height: "5ft 9in" },
-  {name: "Joffrey Baratheon", cohort: :november, hobbies: "CrossFit", country_of_birth: "England", height: "5ft 6in" },
-  {name: "Norman Bates", cohort: :november, hobbies: "CrossFit", country_of_birth: "USA", height: "6ft 0in" }
-  ]
+@students = [] # an empty array accessible to all methods
   
 def input_students
   puts "Please enter the names of the students"
@@ -39,6 +26,7 @@ def print_menu
   puts "1. Input the students"
   puts "2. Show the students"
   puts "3. Save the list to students.csv"
+  puts "4. Load the list from students.csv"
   puts "9. Exit" # 9 because we'll be adding more items
 end
 
@@ -56,6 +44,8 @@ def process(selection)
     show_students
   when "3"
     save_students
+  when "4"
+    load_students
   when "9"
     exit # this will cause the program to terminate
   else
@@ -78,38 +68,6 @@ def print_footer
   puts "Overall, we have #{@students.count} great students"
 end
 
-def print_names_beginning_with(students)
-  puts "Do you want to search for students by first letter? Type 'yes' or 'no'.".center(200)
-  answer = gets.chomp
-  while answer == "yes"
-    puts "Enter the letter you want to search for.".center(200)
-    letter = gets.chomp
-    puts "Names beginning with #{letter}:".center(200)
-    students.each_with_index do |student , index|
-      if student[:name].start_with? letter.to_s
-        puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort), hobbies: #{student[:hobbies]}, country of birth: #{student[:country_of_birth]}, height: #{student[:height]}".center(200)
-      end 
-    end
-    puts "Do you want to search for another letter?".center(200)
-    answer = gets.chomp
-  end
-end
-
-def print_names_shorter_than_12_char(students)
-  puts "Do you want to print name shorter than 12 characters?".center(200)
-  answer = gets.chomp
-  if answer == "yes"
-    students.each_with_index do |student , index|
-      name = (student[:name]).to_s
-      name_length = name.length
-      if name_length <= 12
-        puts "Names shorter than 12 characters:".center(200)
-        puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort), hobbies: #{student[:hobbies]}, country of birth: #{student[:country_of_birth]}, height: #{student[:height]}".center(200)
-      end 
-    end
-  end
-end
-
 def save_students
   # open the file for writing
   file = File.open("students.csv", "w")
@@ -118,6 +76,17 @@ def save_students
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
     file.puts csv_line
+  end
+  file.close
+end
+
+def load_students
+  # open the file for reading
+  file = File.open("students.csv", "r")
+  # iterate over the array of students
+  file.readlines.each do |line|
+  name, cohort = line.chomp.split(',')
+    @students << {name: name, cohort: cohort.to_sym}
   end
   file.close
 end
